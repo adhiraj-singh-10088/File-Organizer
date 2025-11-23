@@ -1,0 +1,99 @@
+PROJECT REPORT
+
+PROJECT TITLE: 		Automatic File Organizer
+CREATED BY:    		Mr. Adhiraj Singh
+REGISTERED NUMBER:    	25BCE10088
+DATE:          		23/11/2025
+COURSE:			INTRODUCTION TO PROBLEM SOLVING (CSE 1021)
+INSTRUCTOR:		Dr. Sandip Mal
+
+
+ABSTRACT
+
+The "Automatic File Organizer" is a desktop application developed in Python designed to solve the common problem of cluttered digital workspaces. The application provides a Graphical User Interface (GUI) that allows users to select a source directory (containing disorganized files) and a destination directory. It automatically sorts files into subfolders based on their file extensions (e.g., Images, Documents, Videos) while safely handling duplicate filenames and persisting user preferences.
+
+
+
+PROBLEM STATEMENT
+
+Computer users frequently accumulate large numbers of files in specific folders, such as "Downloads" or "Desktop." Manually sorting these files is time consuming, repetitive, and prone to error. Existing solutions often require command line knowledge or lack visual feedback, making them inaccessible to average users.
+
+
+
+PROPOSED SOLUTION
+
+This project offers a user-friendly automation tool that:
+
+Classifies files by type (extension).
+
+Moves files to appropriate categories.
+
+Renames duplicate files to prevent data loss.
+
+Provides a visual progress bar during operation.
+
+Compiles into a standalone executable (.exe) for ease of distribution.
+
+
+
+KEY FEATURES
+
+Dual Path Selection: Users can independently choose a messy "Source" folder and a clean "Destination" folder.
+
+Intelligent Sorting: Files are automatically routed to folders like 'Images', 'Documents', 'Archives', etc.
+
+Safety First: The application checks for existing files. If a file named "Report.pdf" already exists, the new file is automatically renamed to "Report(1).pdf" to prevent overwriting.
+
+Visual Feedback: A real-time progress bar and status text inform the user of the operation's status.
+
+Settings Persistence: The application remembers the last used folders using a local JSON configuration file, speeding up future usage.
+
+
+
+TECH STACK
+
+Language: Python 3.14.0
+
+GUI Library: Tkinter (Standard Python Interface) & ttk (Themed Tkinter)
+
+File Operations: shutil (Shell Utilities), os (Operating System interface)
+
+Data Storage: json (for saving user settings)
+
+Deployment: PyInstaller (for converting .py to .exe)
+
+
+
+ALGORITHM LOGIC
+
+1. Initialization: Load saved paths from settings.json if available.
+
+2. Input: User selects Source and Destination paths via GUI.
+
+3. Validation: Verify that both paths exist.
+
+4. Scanning: Create a list of all files in the Source directory (ignoring subfolders).
+
+5. Iteration: Loop through each file: 1..  Extract file extension. 2.  Match extension to a predefined category (e.g., .jpg -> Images). 3.  Check Destination for filename conflicts. 4.  If conflict exists, generate a unique name (append counter). 5.  Move file to the target subfolder. 6.  Update Progress Bar.
+
+6. Completion: Display success message and updated statistics.
+
+
+
+USER MANUAL (HOW TO RUN)
+
+1. Locate the folder C:\Program Files\File Organizer\dist (created via the build script).
+
+2. Double-click FileOrganizer.exe.
+
+3. Select your Source folder (e.g., Downloads).
+
+4. Select your Destination folder (e.g., Documents).
+
+5. Click "Move & Organize Files"
+
+
+
+CONCLUSION
+
+The Automatic File Organizer successfully demonstrates how Python can be used to automate mundane operating system tasks. By wrapping powerful file manipulation logic inside an intuitive GUI, the tool bridges the gap between technical scripting and end-user accessibility.
